@@ -1,0 +1,12 @@
+version: '2'
+services:
+    minitwitter-app:
+        image: minitwitter
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://minitwitter-postgresql:5432/minitwitter
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    minitwitter-postgresql:
+        extends:
+            file: postgresql.yml
+            service: minitwitter-postgresql
