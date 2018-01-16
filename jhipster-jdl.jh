@@ -1,0 +1,31 @@
+entity Person {
+	firstName String,
+    lastName String,
+    userId String,
+    email String
+}
+
+entity Message {
+	messageId Long,
+    text String,
+}
+
+
+entity Friend {}
+
+
+relationship OneToMany {
+	Person{message} to Message
+}
+
+relationship OneToMany {
+	Person{friend} to Friend
+}
+
+relationship ManyToOne {
+	Friend{follower} to Person
+}
+
+dto * with mapstruct
+
+service all with serviceImpl
